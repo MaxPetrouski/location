@@ -11,6 +11,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+//import com.google.firebase.database.FirebaseDatabase;
+//import com.google.firebase.database.DatabaseReference;
+
 public class MainActivity extends Activity {
 
     TextView tvEnabledGPS;
@@ -23,6 +26,9 @@ public class MainActivity extends Activity {
     private LocationManager locationManager;
     StringBuilder sbGPS = new StringBuilder();
     StringBuilder sbNet = new StringBuilder();
+
+//    private DatabaseReference mylocation = FirebaseDatabase.getInstance()
+//            .getReference().child("location");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +65,11 @@ public class MainActivity extends Activity {
 
         @Override
         public void onLocationChanged(Location location) {
+
             showLocation(location);
+
+//            mylocation.child('latitude').setValue(location.getLatitude());
+//            mylocation.child('longtitude').setValue(location.getLongitude());
         }
 
         @Override
